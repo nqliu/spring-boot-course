@@ -1,4 +1,5 @@
-package top.nql.controller;
+package top.config.config.controller;
+
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,8 +17,7 @@ public class MoodController {
     private String author;
     @GetMapping("/mood")
     public String getMood() {
-        return "Today: " + today + ", Content: " + content + ", Author: " + author;
+        return "今天是: " + today + ", 心情是: " + content + ", 身份是: " + author;
     }
-
 
 }
