@@ -1,8 +1,8 @@
-package top.config.config.service;
+package top.nql.config.service;
 
 
-import top.config.config.enums.ResultStatus;
-import top.config.config.model.Mail;
+import top.nql.config.enums.ResultStatus;
+import top.nql.config.model.Mail;
 
 public interface MailService {
 

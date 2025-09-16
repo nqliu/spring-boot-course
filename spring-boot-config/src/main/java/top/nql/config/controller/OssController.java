@@ -1,11 +1,11 @@
-package top.config.config.controller;
+package top.nql.config.controller;
 
 
 import jakarta.annotation.Resource;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
-import top.config.config.service.OssService;
+import top.nql.config.service.OssService;
 
 @RestController
 @RequestMapping("/oss")

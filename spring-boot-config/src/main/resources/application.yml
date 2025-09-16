@@ -1,5 +1,5 @@
 server:
-  port: 8888
+      port: 8081
 
 team:
   name:  Web2班
@@ -9,8 +9,10 @@ team:
 
 aliyun-oss:
   endpoint: "oss-cn-hangzhou.aliyuncs.com"
-  bucket: "qxyqs"
+  bucket: "liuqn"
   dir: "img/"
+
+
 
 spring:
   servlet:
@@ -20,8 +22,8 @@ spring:
 
   mail:
     host: smtp.qq.com #发送邮件服务器
-    username: 664903978@qq.com #你的qq邮箱
-    password: owebmrwzwjfebfcd #客户端授权码
+    username: 2765126643@qq.com #你的qq邮箱
+    password: axwkopexsjghdhfc #客户端授权码
     protocol: smtp #发送邮件协议
     properties.mail.smtp.auth: true
     properties.mail.smtp.port: 465 #端口号465或587

@@ -1,9 +1,9 @@
-package top.config.config.enums;
+package top.nql.config.enums;
 
 public enum DrinkType {
-    COFFEE("咖啡",12),
-    TEA("奶茶",15),
-    JUICE("果汁",10);
+    COFFEE("咖啡",20),
+    TEA("奶茶",18),
+    JUICE("果汁",30);
     private final String label;
     private final int price;
     DrinkType(String label, int price) {

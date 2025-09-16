@@ -1,4 +1,4 @@
-package top.config.config.enums;
+package top.nql.config.enums;
 
 public enum ResultStatus {
     SUCCESS("发送成功"),FAIL("失败");

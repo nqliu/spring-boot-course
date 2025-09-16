@@ -12,4 +12,4 @@ my:
 
   feature:
     helloSwitch: true
-    closeMsq: "该接口正在维护，10分钟后再来吧！"
+    closeMsg: "该接口正在维护，10分钟后再来吧！"

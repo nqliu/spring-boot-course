@@ -1,4 +1,4 @@
-package top.config.config.service.impl;
+package top.nql.config.service.impl;
 
 import jakarta.annotation.Resource;
 import jakarta.mail.MessagingException;
@@ -8,9 +8,9 @@ import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Service;
-import top.config.config.enums.ResultStatus;
-import top.config.config.model.Mail;
-import top.config.config.service.MailService;
+import top.nql.config.enums.ResultStatus;
+import top.nql.config.model.Mail;
+import top.nql.config.service.MailService;
 
 
 

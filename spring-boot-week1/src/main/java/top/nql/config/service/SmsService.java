@@ -1,4 +1,4 @@
-package top.config.config.service;
+package top.nql.config.service;
 
 public interface SmsService {
     /**

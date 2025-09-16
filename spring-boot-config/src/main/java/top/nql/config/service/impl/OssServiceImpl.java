@@ -1,4 +1,4 @@
-package top.config.config.service.impl;
+package top.nql.config.service.impl;
 
 import com.aliyun.oss.OSS;
 import com.aliyun.oss.OSSClientBuilder;
@@ -6,8 +6,8 @@ import jakarta.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
-import top.config.config.config.OssConfig;
-import top.config.config.service.OssService;
+import top.nql.config.config.OssConfig;
+import top.nql.config.service.OssService;
 
 import java.io.InputStream;
 import java.util.UUID;

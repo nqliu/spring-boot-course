@@ -1,4 +1,4 @@
-package top.config.config.config;
+package top.nql.config.config;
 
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;

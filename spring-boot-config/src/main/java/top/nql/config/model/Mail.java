@@ -1,4 +1,4 @@
-package top.config.config.model;
+package top.nql.config.model;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;

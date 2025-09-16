@@ -1,4 +1,4 @@
-package top.config.config.controller;
+package top.nql.config.controller;
 
 
 import org.springframework.beans.factory.annotation.Value;

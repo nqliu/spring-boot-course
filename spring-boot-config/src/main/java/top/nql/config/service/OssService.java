@@ -1,4 +1,4 @@
-package top.config.config.service;
+package top.nql.config.service;
 
 import org.springframework.web.multipart.MultipartFile;
 

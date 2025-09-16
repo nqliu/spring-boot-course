@@ -1,4 +1,4 @@
-package top.config.config.common;
+package top.nql.config.common;
 
 import lombok.Getter;
 

@@ -1,10 +1,10 @@
-package top.config.model;
+package top.nql.model;
 
 import jakarta.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
-import top.config.config.model.Team;
+import top.nql.config.model.Team;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 

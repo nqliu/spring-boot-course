@@ -1,4 +1,4 @@
-package top.config.config.enums;
+package top.nql.config.enums;
 
 public enum ExpressStatus {
     CREATED("已揽收"),

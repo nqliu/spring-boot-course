@@ -1,10 +1,10 @@
-package top.config.service;
+package top.nql.service;
 
 import jakarta.annotation.Resource;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
-import top.config.config.service.MailService;
-import top.config.config.model.Mail;
+import top.nql.config.service.MailService;
+import top.nql.config.model.Mail;
 @SpringBootTest
 class MailServiceTest {
     @Resource

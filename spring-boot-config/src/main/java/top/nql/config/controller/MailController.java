@@ -1,4 +1,4 @@
-package top.config.config.controller;
+package top.nql.config.controller;
 
 
 import jakarta.annotation.Resource;
@@ -8,10 +8,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import top.config.config.common.ApiResponse;
-import top.config.config.enums.ResultStatus;
-import top.config.config.model.Mail;
-import top.config.config.service.MailService;
+import top.nql.config.common.ApiResponse;
+import top.nql.config.enums.ResultStatus;
+import top.nql.config.model.Mail;
+import top.nql.config.service.MailService;
 
 @RestController
 @RequestMapping("/mail")

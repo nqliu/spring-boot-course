@@ -1,12 +1,12 @@
-package top.config.config.service.impl;
+package top.nql.config.service.impl;
 
 import com.cloopen.rest.sdk.BodyType;
 import com.cloopen.rest.sdk.CCPRestSmsSDK;
 import jakarta.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
-import top.config.config.config.CloopenConfig;
-import top.config.config.service.SmsService;
+import top.nql.config.config.CloopenConfig;
+import top.nql.config.service.SmsService;
 
 
 import java.util.HashMap;
