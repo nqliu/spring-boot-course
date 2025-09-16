@@ -6,7 +6,10 @@ import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 import top.nql.config.model.Team;
 
+import java.time.LocalDate;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @SpringBootTest
 @Slf4j
@@ -17,7 +20,9 @@ class TeamTest {
     @Test
     void testTeam(){
         log.info("团队创建成功");
-        assertEquals("Web2班", team.getName());
-        assertEquals("mqxu", team.getLeader());
+        assertEquals("mqxu",team.getLeader());
+        assertTrue(team.getPhone().matches("^[0-9]{11}$"));
+        assertTrue(team.getAge() >= 1 && team.getAge() <= 6);
+        assertTrue(team.getCreateDate().isBefore(LocalDate.now()));
     }
 }
