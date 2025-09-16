@@ -10,10 +10,12 @@ import top.nql.config.enums.ExpressStatus;
 @RestController
 @RequestMapping("/express")
 public class ExpressController {
-    @GetMapping("/express/{status}")
-    public String getExpressInfo(@PathVariable ExpressStatus status) {
-        return "当前快递状态：" + status.getLabel();
+    @GetMapping("{status}")
+    public String checkExpress(@PathVariable ExpressStatus status){
+        return "快递状态："+status.getLabel();
     }
+
+
 }
 
 
