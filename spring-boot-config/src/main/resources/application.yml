@@ -22,14 +22,14 @@ spring:
       max-request-size: 100MB
 
   mail:
-    host: smtp.qq.com #发送邮件服务器
-    username: 2765126643@qq.com #你的qq邮箱
-    password: axwkopexsjghdhfc #客户端授权码
-    protocol: smtp #发送邮件协议
+    host: smtp.qq.com
+    username: 2765126643@qq.com
+    password: axwkopexsjghdhfc
+    protocol: smtp
     properties.mail.smtp.auth: true
-    properties.mail.smtp.port: 465 #端口号465或587
-    properties.mail.display.sendmail: Spring Boot #可以任意
-    properties.mail.display.sendname: Spring Boot Guide Email #可以任意
+    properties.mail.smtp.port: 465
+    properties.mail.display.sendmail: Spring Boot
+    properties.mail.display.sendname: Spring Boot Guide Email
     properties.mail.smtp.starttls.enable: true
     properties.mail.smtp.starttls.required: true
     properties.mail.smtp.ssl.enable: true
