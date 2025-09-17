@@ -33,4 +33,3 @@ build/
 .vscode/
 
 
-spring-boot-config/src/main/resources/aliyun-oss-sample.properties
