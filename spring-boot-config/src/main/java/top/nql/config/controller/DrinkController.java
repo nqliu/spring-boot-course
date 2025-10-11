@@ -9,9 +9,8 @@ import top.nql.config.enums.DrinkType;
 
 @RestController
 @RequestMapping("/drink")
-
 public class DrinkController {
-    @GetMapping("/{type}")
+    @GetMapping("/drink/{type}")
     public String getDrinkType(@PathVariable DrinkType type) {
         return "您选择的是："+ type.getLabel()+",价格是："+type.getPrice();
     }

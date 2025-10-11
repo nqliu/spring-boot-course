@@ -12,8 +12,6 @@ import top.nql.config.enums.ResultStatus;
 import top.nql.config.model.Mail;
 import top.nql.config.service.MailService;
 
-
-
 @Service
 public class MailServiceImpl implements MailService {
     @Value("${spring.mail.username}")
