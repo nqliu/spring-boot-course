@@ -35,6 +35,10 @@ public class LoginServiceImpl implements LoginService {
         String redisCode = redisCache.get(redisKey).toString();
         if(redisCode==null){
             throw new ServerException("验证码已过期或不存在");
+<<<<<<< HEAD
+=======
+
+>>>>>>> a43fc7db9e2411a2611127d4f9c60a7174b604bf
         }
         if(!inputCode.equals(redisCode)){
             throw new ServerException("验证码错误");

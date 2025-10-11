@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
@@ -34,6 +35,7 @@
 
 
     <dependencies>
+<<<<<<< HEAD
         <dependency>
             <groupId>io.jsonwebtoken</groupId>
             <artifactId>jjwt-api</artifactId>
@@ -60,19 +62,99 @@
             <version>${fastjson2.version}</version>
         </dependency>
         <!-- Spring Boot Web 核心依赖（传递给子模块） -->
+=======
+        <!-- Spring Boot Web 核心依赖 -->
+=======
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>top.nql</groupId>
+        <artifactId>spring-boot-course</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
+    </parent>
+
+    <artifactId>sprig-boot-filter-interceptor</artifactId>
+
+    <description>过滤器、拦截器</description>
+
+    <dependencies>
+        <!-- 核心Web依赖（含SpringMVC和Servlet 5.0） -->
+>>>>>>> c04a1e4 (spring-boot-filter-interceptor)
+>>>>>>> a43fc7db9e2411a2611127d4f9c60a7174b604bf
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
 
+<<<<<<< HEAD
         <!-- 测试依赖（仅测试环境生效，传递给子模块） -->
+=======
+<<<<<<< HEAD
+        <!-- 测试依赖 -->
+=======
+        <!-- 参数校验（JSR-303） -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-validation</artifactId>
+        </dependency>
+
+        <!-- Redis -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-redis</artifactId>
+        </dependency>
+
+        <!-- 连接池 -->
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-pool2</artifactId>
+        </dependency>
+
+        <!-- JWT工具 -->
+        <dependency>
+            <groupId>io.jsonwebtoken</groupId>
+            <artifactId>jjwt-api</artifactId>
+            <version>0.11.5</version>
+        </dependency>
+        <dependency>
+            <groupId>io.jsonwebtoken</groupId>
+            <artifactId>jjwt-impl</artifactId>
+            <version>0.11.5</version>
+            <scope>runtime</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.jsonwebtoken</groupId>
+            <artifactId>jjwt-jackson</artifactId>
+            <version>0.11.5</version>
+            <scope>runtime</scope>
+        </dependency>
+
+        <!-- 简化代码 -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.38</version>
+            <optional>true</optional>
+        </dependency>
+
+        <!-- 测试 -->
+>>>>>>> c04a1e4 (spring-boot-filter-interceptor)
+>>>>>>> a43fc7db9e2411a2611127d4f9c60a7174b604bf
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
 
+<<<<<<< HEAD
         <!-- Lombok（optional=true：子模块需显式引入才生效） -->
+=======
+<<<<<<< HEAD
+        <!-- Lombok（用于日志注解 @Slf4j） -->
+>>>>>>> a43fc7db9e2411a2611127d4f9c60a7174b604bf
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
@@ -141,4 +223,12 @@
             </plugin>
         </plugins>
     </build>
+=======
+        <dependency>
+            <groupId>cn.hutool</groupId>
+            <artifactId>hutool-all</artifactId>
+            <version>5.8.38</version>
+        </dependency>
+    </dependencies>
+>>>>>>> c04a1e4 (spring-boot-filter-interceptor)
 </project>

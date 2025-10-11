@@ -45,6 +45,10 @@ public class RedisConfig {
             }
             return JSON.toJSONString(t, JSONWriter.Feature.WriteClassName).getBytes(DEFAULT_CHARSET);
         }
+<<<<<<< HEAD
+=======
+
+>>>>>>> a43fc7db9e2411a2611127d4f9c60a7174b604bf
         @Override
         public T deserialize(byte[] bytes) throws SerializationException {
             if (null == bytes || bytes.length == 0) {

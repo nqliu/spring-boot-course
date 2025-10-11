@@ -10,6 +10,7 @@
     </parent>
 
     <artifactId>spring-boot-alipay</artifactId>
+<<<<<<< HEAD
 <dependencies>
     <dependency>
         <groupId>com.alipay.sdk</groupId>
@@ -24,5 +25,13 @@
     </dependency>
 </dependencies>
 
+=======
+
+    <properties>
+        <maven.compiler.source>24</maven.compiler.source>
+        <maven.compiler.target>24</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+>>>>>>> a43fc7db9e2411a2611127d4f9c60a7174b604bf
 
 </project>

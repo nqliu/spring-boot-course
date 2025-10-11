@@ -1,28 +1,54 @@
+<<<<<<<< HEAD:spring-boot-week1/src/main/java/top/nql/service/impl/SmsServiceImpl.java
 package top.nql.service.impl;
+========
+package top.nql.boot.service.impl;
+>>>>>>>> a43fc7db9e2411a2611127d4f9c60a7174b604bf:spring-boot-redis/src/main/java/top/nql/boot/service/impl/SmsServiceImpl.java
 
 import com.cloopen.rest.sdk.BodyType;
 import com.cloopen.rest.sdk.CCPRestSmsSDK;
-import jakarta.annotation.Resource;
+import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
+<<<<<<<< HEAD:spring-boot-week1/src/main/java/top/nql/service/impl/SmsServiceImpl.java
 import top.nql.config.CloopenConfig;
 import top.nql.service.SmsService;
+========
+import top.nql.boot.Exception.ServerException;
+import top.nql.boot.cache.RedisCache;
+import top.nql.boot.cache.RedisKeys;
+import top.nql.boot.config.CloopenConfig;
+import top.nql.boot.enums.ErrorCode;
+import top.nql.boot.service.SmsService;
+import top.nql.boot.utils.CommonUtils;
+>>>>>>>> a43fc7db9e2411a2611127d4f9c60a7174b604bf:spring-boot-redis/src/main/java/top/nql/boot/service/impl/SmsServiceImpl.java
 
 import java.util.HashMap;
 import java.util.Set;
 import java.util.UUID;
-import java.util.concurrent.ThreadLocalRandom;
+
 @Slf4j
 @Service
+@AllArgsConstructor
 public class SmsServiceImpl implements SmsService {
-    @Resource
-    private CloopenConfig cloopenConfig;
+    private final CloopenConfig cloopenConfig;
+    private final RedisCache redisCache;
 
     @Override
-    public void sendSms(String phone) {
-        int code = ThreadLocalRandom.current().nextInt(1000, 9999);
-        log.info("发送短信验证码给：{}，验证码：{}", phone, code);
+    public boolean sendSms(String phone) {
+        if (!CommonUtils.checkPhone(phone)) {
+            throw new ServerException(ErrorCode.PHONE_ERROR);
+        }
 
+        int code = CommonUtils.generateCode();
+        redisCache.set(RedisKeys.getSmsKey(phone), code, 60);
+        log.info("发送短信验证码：{}", code);
+        boolean flag = true;
+        flag = send(phone,code);
+        return flag;
+    }
+
+
+    private boolean send(String phone, int code) {
         String serverIp = cloopenConfig.getServerIp();
         String serverPort = cloopenConfig.getPort();
         String accountSid = cloopenConfig.getAccountSid();
@@ -30,10 +56,9 @@ public class SmsServiceImpl implements SmsService {
         String appId = cloopenConfig.getAppId();
         String templateId = cloopenConfig.getTemplateId();
 
-        // 修正SDK初始化
+        // 初始化SDK
         CCPRestSmsSDK sdk = new CCPRestSmsSDK();
         sdk.init(serverIp, serverPort);
-
         sdk.setAccount(accountSid, accountToken);
         sdk.setAppId(appId);
         sdk.setBodyType(BodyType.Type_JSON);
@@ -47,9 +72,7 @@ public class SmsServiceImpl implements SmsService {
                 UUID.randomUUID().toString()
         );
 
-        // 修正状态码判断（通常成功码是"000000"）
         if ("000000".equals(result.get("statusCode"))) {
-            @SuppressWarnings("unchecked")
             HashMap<String, Object> data = (HashMap<String, Object>) result.get("data");
             Set<String> keySet = data.keySet();
             for (String key : keySet) {
@@ -57,10 +80,12 @@ public class SmsServiceImpl implements SmsService {
                 log.info("{} = {}", key, object);
             }
         } else {
-            // 修正日志输出语法
             log.error("错误码={}, 错误信息= {}",
                     result.get("statusCode"),
                     result.get("statusMsg"));
+            return false;
         }
+        return true;
     }
 }
+
