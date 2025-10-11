@@ -9,8 +9,10 @@ import java.io.IOException;
 import java.util.Enumeration;
 
 /**
+ * 日志过滤器
  * @author nql
  */
+
 @Slf4j
 @Component
 public class LogFilter implements Filter {
@@ -53,14 +55,5 @@ public class LogFilter implements Filter {
     public void destroy() {
         log.info("LogFilter 销毁...");
     }
-    /**
-     * 日志过滤器
-     * 功能作用：记录请求的详细信息（URL、请求方法、IP地址、请求参数）及请求处理耗时，用于请求跟踪和性能初步分析
-     * 触发条件：
-     *   - 对所有经过该过滤器的请求生效（需在web.xml或配置类中注册并配置拦截路径）
-     *   - 在请求进入过滤器链时触发pre处理，在请求处理完成后触发post处理
-     * 验证方式：
-     *   - 发送任意请求（如GET /api/test/filter?name=test）
-     *   - 查看日志输出，应包含"请求开始 - URL: ..."和"请求结束 - URL: ... 耗时: ...ms"的日志记录
-     */
+
 }

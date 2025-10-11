@@ -21,17 +21,7 @@ import java.lang.reflect.Type;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-/**
- * 参数校验拦截器
- * 功能作用：对POST请求的JSON格式参数进行校验（基于JSR-303注解，如@NotBlank），提前拦截无效参数
- * 触发条件：
- *   - 仅对POST请求且Content-Type为application/json的接口生效
- *   - 在控制器方法执行前（preHandle）读取请求体并校验DTO对象
- * 验证方式：
- *   - 发送缺少必填参数的POST请求（如POST /api/login，body为{"username":""}）
- *   - 响应会返回400状态码和具体校验错误信息（如"用户名不能为空"）
- * @author alani
- */
+
 @Component
 public class ParamValidateInterceptor implements HandlerInterceptor {
     // 校验器（单例）

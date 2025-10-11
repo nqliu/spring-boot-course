@@ -18,18 +18,7 @@ import java.util.List;
  * @author nql
  *  */
 
-/**
- * JWT权限拦截器（依赖@RequireRole注解）
- * 功能作用：验证请求的JWT令牌有效性，并检查用户角色是否符合接口要求的访问权限
- * 触发条件：
- *   - 仅对标注@RequireRole注解的控制器方法生效（如/api/profile需要ADMIN/USER角色）
- *   - 在控制器方法执行前（preHandle）验证Token和角色权限
- * 验证方式：
- *   - 无Token访问带@RequireRole的接口：返回401"请先登录"
- *   - 无效/过期Token访问：返回401"Token无效或已过期"
- *   - 角色不匹配（如USER访问ADMIN接口）：返回403"权限不足"
- *   - 有效Token且角色匹配：正常访问接口
- */
+
 @Slf4j
 @Component
 @AllArgsConstructor

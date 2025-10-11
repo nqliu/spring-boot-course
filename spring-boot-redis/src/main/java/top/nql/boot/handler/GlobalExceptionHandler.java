@@ -19,6 +19,7 @@ public class GlobalExceptionHandler {
      */
     @ExceptionHandler(ServerException.class)
     public Result<String> handleBusinessException(ServerException e) {
+
         return Result.error(e.getCode(), e.getMsg());
     }
 

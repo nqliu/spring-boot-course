@@ -2,14 +2,12 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <!-- 使用 Spring Boot 官方父依赖，而非自定义父模块 -->
+    <!-- 继承 Spring Boot 官方父依赖 -->
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-
-        <version>3.3.4</version>
-       <!-- 稳定版本 -->
-        <relativePath/>  <!-- 从 Maven 仓库查找，不依赖本地路径 -->
+        <version>3.2.5</version>
+        <relativePath/>
     </parent>
 
     <groupId>top.nql</groupId>
@@ -17,55 +15,94 @@
     <version>0.0.1-SNAPSHOT</version>
     <name>spring-boot-week1</name>
     <description>spring-boot-week1</description>
-    <packaging>pom</packaging>
+    <packaging>pom</packaging> <!-- 多模块父工程必须为 pom 打包 -->
     <url>http://maven.apache.org</url>
 
-    <properties>
-        <maven.compiler.source>24</maven.compiler.source>
-        <maven.compiler.target>24</maven.compiler.target>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <mybatis-plus.version>3.5.7</mybatis-plus.version>
-        <mysql.version>8.3.0</mysql.version>
-    </properties>
+
+
+        <properties>
+            <maven.compiler.source>24</maven.compiler.source>
+            <maven.compiler.target>24</maven.compiler.target>
+            <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+            <mybatis-plus.version>3.5.7</mybatis-plus.version>
+            <mysql.version>8.3.0</mysql.version>
+            <fastjson2.version>2.0.53</fastjson2.version> <!-- 添加这一行 -->
+            <datafaker.version>2.2.2</datafaker.version> <!-- 添加这一行 -->
+            <java-sms-sdk.version>1.0.4</java-sms-sdk.version>
+            <jjwt.version>0.11.5</jjwt.version>
+        </properties>
+
 
     <dependencies>
-        <!-- Spring Boot Web 核心依赖 -->
+        <dependency>
+            <groupId>io.jsonwebtoken</groupId>
+            <artifactId>jjwt-api</artifactId>
+            <version>${jjwt.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.jsonwebtoken</groupId>
+            <artifactId>jjwt-impl</artifactId>
+            <version>${jjwt.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.jsonwebtoken</groupId>
+            <artifactId>jjwt-jackson</artifactId>
+            <version>${jjwt.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.cloopen</groupId>
+            <artifactId>java-sms-sdk</artifactId>
+            <version>${java-sms-sdk.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.alibaba.fastjson2</groupId>
+            <artifactId>fastjson2</artifactId>
+            <version>${fastjson2.version}</version>
+        </dependency>
+        <!-- Spring Boot Web 核心依赖（传递给子模块） -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
 
-        <!-- 测试依赖 -->
+        <!-- 测试依赖（仅测试环境生效，传递给子模块） -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
 
-        <!-- Lombok（用于日志注解 @Slf4j） -->
+        <!-- Lombok（optional=true：子模块需显式引入才生效） -->
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <optional>true</optional>
             <version>1.18.38</version>
-
-
+            <optional>true</optional>
+            <!-- 删除版本，继承父工程版本 -->
         </dependency>
 
-        <!-- 热部署 -->
+        <!-- 热部署（optional=true：子模块需显式引入才生效） -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-devtools</artifactId>
             <optional>true</optional>
         </dependency>
-
     </dependencies>
+
+    <!-- 子模块列表 -->
     <modules>
         <module>spring-boot-week1</module>
         <module>spring-boot-config</module>
-        <module>spring-boot-mp</module>  <!-- 子模块目录名 -->
+        <module>spring-boot-mp</module>
+        <module>spring-boot-exception</module>
+        <module>spring-boot-library</module>
+        <module>spring-boot-alipay</module>
+        <module>spring-boot-redis</module>
+        <module>sprig-boot-filter-interceptor</module>
+        <module>spring-boot-schedule</module>
     </modules>
-    <!--统一管理版本-->
+
+    <!-- 统一管理第三方依赖版本（子模块引入时无需指定版本） -->
     <dependencyManagement>
         <dependencies>
             <dependency>
@@ -78,16 +115,29 @@
                 <artifactId>mysql-connector-j</artifactId>
                 <version>${mysql.version}</version>
             </dependency>
+            <dependency>
+                <groupId>net.datafaker</groupId>
+                <artifactId>datafaker</artifactId>
+                <version>${datafaker.version}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
+
     <build>
         <plugins>
-            <!-- Spring Boot 打包插件（必要，否则无法用 java -jar 运行） -->
+            <!-- Spring Boot 打包插件（继承父工程3.3.8版本） -->
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
-                <version>2.7.5</version>
-
+                <version>3.3.8</version>
+                <!-- 关键：添加此配置，确保子模块能正确打包（多模块必备） -->
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>

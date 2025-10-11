@@ -8,6 +8,7 @@ import org.springframework.stereotype.Component;
 import java.io.IOException;
 
 /**
+ *  跨域过滤器
  * @author nql
  */
 // 跨域过滤器（全局处理跨域请求）
@@ -41,13 +42,3 @@ public class CorsFilter implements Filter {
     }
 }
 
-/**
- * 跨域过滤器
- * 功能作用：处理浏览器跨域请求限制，允许指定域名（如http://localhost:5173）的前端应用访问后端接口
- * 触发条件：
- *   - 对所有请求生效，特别是非简单请求（如带自定义头、PUT/DELETE方法）会先触发OPTIONS预检请求
- *   - 在请求进入过滤器链时设置跨域响应头
- * 验证方式：
- *   - 从http://localhost:5173前端页面发送请求到后端接口（如GET /api/test/cors）
- *   - 检查浏览器控制台无跨域错误，或通过F12查看响应头包含Access-Control-Allow-Origin等跨域相关头
- */
